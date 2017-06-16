@@ -1,66 +1,22 @@
-\section{S15 Large Scale Tests}\label{s15-large-scale-tests}
+\documentclass[DM,toc]{lsstdoc}
+\usepackage{booktabs}
 
-\begin{itemize}
-\item
-  \protect\hyperlink{S15LargeScaleTests-DataSet}{Data Set}
-\item
-  \protect\hyperlink{S15LargeScaleTests-Hardware}{Hardware}
-\item
-  \protect\hyperlink{S15LargeScaleTests-Timingsummary}{Timing summary}
+\title[Qserv Test Summer 2015]{Qserv Summer 15 Large Scale Tests}
+\author{Jacek~Becla}
+\date{2015-08-27}
+\setDocRef{DMTR-13}
 
-  \begin{itemize}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Shortqueries}{Short queries}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Fulltablescansux2csingl}{Full
-    table scans, single query at a time}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Fulltablejoinsux2csingl}{Full
-    table joins, single query at a time}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Concurrentscans}{Concurrent
-    scans}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Heavyloadtest50LV+5H}{Heavy
-    load test 50 LV + 5 HV}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Heavyloadtest100LV+1}{Heavy
-    load test 100 LV + 10 HV}
-  \end{itemize}
-\item
-  \protect\hyperlink{S15LargeScaleTests-NotesandObservations}{Notes and
-  Observations}
-\item
-  \protect\hyperlink{S15LargeScaleTests-SampleQueries}{Sample Queries}
-\item
-  \protect\hyperlink{S15LargeScaleTests-Rawoutputfromselecte}{Raw output
-  from selected individual queries}
+\setDocAbstract{%
+This document captures information about the large scale tests we ran on the IN2P3 cluster during Summer 2015.
 
-  \begin{itemize}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Counts}{Counts}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Short-runningqueries}{Short-running
-    queries}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Fulltablescans}{Full table
-    scans}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Joins}{Joins}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Nearneighbor}{Near neighbor}
-  \item
-    \protect\hyperlink{S15LargeScaleTests-Sharedscans}{Shared scans}
-  \end{itemize}
-\end{itemize}
+For comparisons, the previous large scale test can be found in \citeds{DMTR-12}.
+}
 
-This page captures information about the large scale tests we ran on the
-IN2P3 cluster during Summer 2015.
+\begin{document}
+\maketitle
 
-For comparisons, here is a link to the previous large scale test that we
-run:~\url{https://dev.lsstcorp.org/trac/wiki/db/Qserv/in2p3_300}
 
-\subsection{Data Set}\label{data-set}
+\section{Data Set}\label{data-set}
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule
@@ -81,7 +37,7 @@ Total MySQL data dir size: 33.2 TB
 So for Object and Source we are at the \textasciitilde{}10\% of DR1
 level. We have more Forced Sources than 10\% of DR1.
 
-\subsection{Hardware}\label{hardware}
+\section{Hardware}\label{hardware}
 
 \begin{itemize}
 \item
@@ -106,13 +62,13 @@ level. We have more Forced Sources than 10\% of DR1.
   1 x card iDRAC 7 Enterprise
 \end{itemize}
 
-\subsection{Timing summary}\label{timing-summary}
+\section{Timing summary}\label{timing-summary}
 
 Data on 24 nodes (for comparison, DR1 is expected to be on~92 nodes).
 
 ~
 
-\subsubsection{\texorpdfstring{\textbf{Short
+\subsection{\texorpdfstring{\textbf{Short
 queries}}{Short queries}}\label{short-queries}
 
 \begin{itemize}
@@ -122,7 +78,7 @@ queries}}{Short queries}}\label{short-queries}
   small spatial area selection from Object: 0.33 sec
 \end{itemize}
 
-\subsubsection{\texorpdfstring{\textbf{Full table scans, single query at
+\subsection{\texorpdfstring{\textbf{Full table scans, single query at
 a
 time}}{Full table scans, single query at a time}}\label{full-table-scans-single-query-at-a-time}
 
@@ -135,7 +91,7 @@ time}}{Full table scans, single query at a time}}\label{full-table-scans-single-
   ForcedSource \textasciitilde{}15 min
 \end{itemize}
 
-\subsubsection{\texorpdfstring{\textbf{Full table joins, single query at
+\subsection{\texorpdfstring{\textbf{Full table joins, single query at
 a
 time}}{Full table joins, single query at a time}}\label{full-table-joins-single-query-at-a-time}
 
@@ -146,7 +102,7 @@ time}}{Full table joins, single query at a time}}\label{full-table-joins-single-
   Object x ForcedSource: \textasciitilde{} 21 min
 \end{itemize}
 
-\subsubsection{\texorpdfstring{\textbf{Concurrent
+\subsection{\texorpdfstring{\textbf{Concurrent
 scans}}{Concurrent scans}}\label{concurrent-scans}
 
 \begin{itemize}
@@ -156,7 +112,7 @@ scans}}{Concurrent scans}}\label{concurrent-scans}
   issues, scheduled to be solved in W16)
 \end{itemize}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Heavy load test 50 LV + 5
+\subsection{\texorpdfstring{\textbf{\emph{Heavy load test 50 LV + 5
 HV}}}{Heavy load test 50 LV + 5 HV}}\label{heavy-load-test-50-lv-5-hv}
 
 \begin{itemize}
@@ -210,7 +166,7 @@ HV}}}{Heavy load test 50 LV + 5 HV}}\label{heavy-load-test-50-lv-5-hv}
   \end{itemize}
 \end{itemize}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Heavy load test 100 LV + 10
+\subsection{\texorpdfstring{\textbf{\emph{Heavy load test 100 LV + 10
 HV}}}{Heavy load test 100 LV + 10 HV}}\label{heavy-load-test-100-lv-10-hv}
 
 \begin{itemize}
@@ -258,7 +214,7 @@ HV}}}{Heavy load test 100 LV + 10 HV}}\label{heavy-load-test-100-lv-10-hv}
   cluster looked like
 \end{itemize}
 
-\subsection{Notes and Observations}\label{notes-and-observations}
+\section{Notes and Observations}\label{notes-and-observations}
 
 \begin{itemize}
 \item
@@ -297,13 +253,12 @@ HV}}}{Heavy load test 100 LV + 10 HV}}\label{heavy-load-test-100-lv-10-hv}
     node: when a query involves multi-GB results, our master node will
     currently use excessive amount of memory and CPU. (Some of the tests
     we ran produced result sets up to 46 GB over the period of 30
-    hours). The uncovered issue will be addressed in FY16 (
-    \href{https://jira.lsstcorp.org/browse/DM-3495}{DM-3495} - Getting
-    issue details... STATUS )~
+    hours). The uncovered issue will be addressed in FY16 (%
+    \href{https://jira.lsstcorp.org/browse/DM-3495}{DM-3495})~
   \end{itemize}
 \end{itemize}
 
-\subsection{Sample Queries}\label{sample-queries}
+\section{Sample Queries}\label{sample-queries}
 
 The actual program that we used to drive the testing can be found
 at:~\href{https://github.com/lsst-dm/db_tests_summer15/blob/tickets/DM-3364/DM-3364/runQueries.py}{runQueries.py}
@@ -362,12 +317,12 @@ JOIN SOURCE USING (objectId)\\
 WHERE fluxToAbMag(iFlux\_PS) - fluxToAbMag(zFlux\_PS) \textgreater{} 4\\
 AND \textless{}some restriction from source table\textgreater{}~
 
-\subsection{Raw output from selected individual
+\section{Raw output from selected individual
 queries}\label{raw-output-from-selected-individual-queries}
 
 Numbers for 24h scaling tests not shown due to size of the output
 
-\subsubsection{Counts}\label{counts}
+\subsection{Counts}\label{counts}
 
 select count(*) from Object;\\
 +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-+\\
@@ -395,7 +350,7 @@ select count(*) from ForcedSource;\\
 +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-+\\
 1 row in set (48.33 sec)
 
-\subsubsection{Short-running queries}\label{short-running-queries}
+\subsection{Short-running queries}\label{short-running-queries}
 
 SELECT ra, decl FROM Object WHERE deepSourceId = 3306154155315676;\\
 +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-+\\
@@ -435,7 +390,7 @@ SELECT ra, decl FROM Object WHERE qserv\_areaspec\_box(0.95, 19.171,
 +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-+\\
 20 rows in set (0.33 sec)
 
-\subsubsection{Full table scans}\label{full-table-scans}
+\subsection{Full table scans}\label{full-table-scans}
 
 select count(*) from Object where y\_instFlux \textgreater{} 5;\\
 +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-+\\
@@ -487,7 +442,7 @@ select count(*) from ForcedSource where psfFlux between 0.1 and 0.2;\\
 +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-+\\
 1 row in set (14 min 58.61 sec)
 
-\subsubsection{Joins}\label{joins}
+\subsection{Joins}\label{joins}
 
 select count(*) from Object o, Source s WHERE o.deepSourceId=s.objectId
 AND s.flux\_sinc BETWEEN 0.13 AND 0.14;\\
@@ -509,7 +464,7 @@ o.deepSourceId=f.deepSourceId AND f.psfFlux BETWEEN 0.13 AND 0.14;\\
 +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-+\\
 1 row in set (21 min 31.38 sec)
 
-\subsubsection{Near neighbor}\label{near-neighbor}
+\subsection{Near neighbor}\label{near-neighbor}
 
 select count(*)\\
 from Object o1, Object o2\\
@@ -528,7 +483,7 @@ and scisql\_angSep(o1.ra, o1.decl, o2.ra, o2.decl) \textless{} 0.015;
 
 1 row in set (11 min 16.02 sec)
 
-\subsubsection{Shared scans}\label{shared-scans}
+\subsection{Shared scans}\label{shared-scans}
 
 Two scans on Object, both finished in \textasciitilde{}8.5 min or so.
 Startup was staggered.
@@ -577,3 +532,6 @@ QTYPE\_FTSObj: 4263.39338088 SELECT COUNT(*) FROM Object WHERE
 y\_instFlux \textgreater{} 5\\
 QTYPE\_FTSSrc: 4264.03135395 SELECT COUNT(*) FROM Source WHERE
 flux\_sinc BETWEEN 1 AND 2
+
+\bibliography{lsst}
+\end{document}
