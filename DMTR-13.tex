@@ -285,9 +285,9 @@ SELECT * FROM Object WHERE objectId = <objId>
 Counts
 
 \begin{lstlisting}[language=SQL]
-SELECT COUNT( * ) FROM Object
-SELECT COUNT( * ) FROM Source
-SELECT COUNT( * ) FROM ForcedSource
+SELECT COUNT( * ) FROM Object
+SELECT COUNT( * ) FROM Source
+SELECT COUNT( * ) FROM ForcedSource
 \end{lstlisting}
 
 Spatially restricted query, small area of sky, should return small
@@ -335,7 +335,7 @@ SELECT o.objectId, s.sourceId, ra_PS, decl_PS, <few other columns>
 FROM Object
 JOIN SOURCE USING (objectId)
 WHERE fluxToAbMag(iFlux_PS) - fluxToAbMag(zFlux_PS) > 4
-AND <some restriction from source table> 
+AND <some restriction from source table>
 \end{lstlisting}
 
 \section{Raw output from selected individual
